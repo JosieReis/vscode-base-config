@@ -4,22 +4,28 @@ This repository must remain neutral, portable, and secret-free.
 
 ## Never commit
 
-- Tokens (access tokens, refresh tokens, session tokens)
+- Tokens (access/refresh/session)
 - API keys
+- Passwords/cookies/bearer credentials
 - SSH keys (public or private)
-- GitHub authentication data
+- GitHub authentication artifacts
 - Copilot settings or credentials
 - Codex/OpenAI settings or credentials
-- Company-specific settings or internal endpoints
+- Company-specific settings, internal endpoints, or private tooling configs
 - VPN configuration files
-- VS Code `workspaceStorage/`
-- VS Code `globalStorage/`
-- VS Code `storage.json`
 - Personal or corporate email addresses
+- VS Code `workspaceStorage/`, `globalStorage/`, or `storage.json`
 
-## Safe practices
+## Commit checklist
 
-- Keep `vscode/settings.json` neutral and machine-agnostic.
-- Keep extension choices generic and non-account-specific.
-- Review `git diff` before every commit.
-- Immediately rotate/revoke any accidentally exposed secret.
+Before every commit:
+- Confirm no secrets or identity artifacts are included.
+- Confirm no machine-specific paths or company-specific data are included.
+- Confirm only neutral VS Code config and scripts are changed.
+- Review `git diff --staged` manually.
+
+## If something sensitive is committed
+
+- Revoke/rotate the secret immediately.
+- Remove the sensitive content from git history if needed.
+- Notify relevant owners/security contacts per policy.

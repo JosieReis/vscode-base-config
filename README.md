@@ -1,25 +1,22 @@
 # VS Code Base Config (Neutral & Portable)
 
-This repository is **only** for a neutral VS Code base configuration that can be reused across multiple macOS work laptops.
+This repository is **only** for a neutral VS Code base configuration reusable across multiple macOS work laptops.
 
-It is intentionally focused on editor environment consistency, not identity:
-- It synchronizes editor behavior, keybindings, snippets, and extension baseline.
-- It does **not** configure personal/company identity, account auth, or AI assistant logins.
+It standardizes editor behavior, not user identity.
 
-## Scope
+## Purpose
 
-Included:
+This repo synchronizes:
 - VS Code settings
-- VS Code keybindings
-- VS Code snippets
-- VS Code extension baseline
-- macOS-focused install scripts for VS Code config and extensions
+- keybindings
+- snippets
+- extension baseline
 
-Excluded on purpose:
-- GitHub login/auth setup
-- Copilot/Codex/OpenAI/agent setup
-- company-specific tools or settings
-- shell profile/terminal dotfile setup
+This repo intentionally does **not** synchronize:
+- GitHub login/authentication
+- Copilot/Codex/OpenAI/agent configuration
+- company-specific tools, endpoints, or policies
+- secrets, tokens, or personal/corporate identity data
 
 ## Repository Structure
 
@@ -33,33 +30,31 @@ vscode-base-config/
     keybindings.json
     extensions.txt
     snippets/
-      typescript.json
-      react.json
-      markdown.json
   scripts/
     bootstrap.sh
     install-extensions.sh
     install-config.sh
 ```
 
-## Usage (new Mac)
+## Setup (macOS)
 
 ```bash
 chmod +x scripts/*.sh
 ./scripts/bootstrap.sh
 ```
 
-What this does:
-1. `install-config.sh`
-   - Copies `settings.json`, `keybindings.json`, and snippets to:
+### What happens
+
+1. `scripts/install-config.sh`
+   - Copies `settings.json`, `keybindings.json`, and snippets into:
      `~/Library/Application Support/Code/User`
-   - Creates timestamped backups before overwriting existing files.
-2. `install-extensions.sh`
+   - Creates timestamped backups before replacing existing files.
+2. `scripts/install-extensions.sh`
    - Installs extensions listed in `vscode/extensions.txt`
-   - Skips safely if the `code` CLI is unavailable.
+   - Skips safely if `code` CLI is unavailable.
 
-## Important
+## Security boundary
 
-Copilot, Codex, GitHub login, agents, and company-specific tools must be configured **locally per machine/profile** as needed.
+This repository synchronizes the **editor environment only**.
 
-This repository standardizes VS Code environment defaults only; it does not sync personal or corporate identity.
+Copilot, Codex, GitHub login, agents, SSO, and any company-specific tooling must be configured **locally per machine/profile** and are intentionally excluded.

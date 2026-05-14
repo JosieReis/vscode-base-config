@@ -4,14 +4,16 @@
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
   "workbench.editor.labelFormat": "short",
-
   "editor.fontSize": 14,
   "editor.lineHeight": 22,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": true,
   "editor.wordWrap": "on",
-  "editor.rulers": [80, 100],
+  "editor.rulers": [
+    80,
+    100
+  ],
   "editor.minimap.enabled": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
@@ -20,22 +22,18 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
-
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.cursorBlinking": true,
-
   "breadcrumbs.enabled": true,
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": false,
-
   "diffEditor.ignoreTrimWhitespace": false,
   "search.exclude": {
     "**/node_modules": true,
@@ -43,12 +41,9 @@
     "**/.next": true,
     "**/coverage": true
   },
-
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-
   "markdown.preview.breaks": true,
-
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -60,5 +55,7 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false
 }
