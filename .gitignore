@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# VS Code runtime/user data that must never be committed
+workspaceStorage/
+globalStorage/
+storage.json
+
+# Local/editor temp
+*.log
