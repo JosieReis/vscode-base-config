@@ -1,0 +1,38 @@
+name: Validate Repo
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate shell script syntax
+        run: bash -n scripts/*.sh
+
+      - name: Validate forbidden patterns are absent from config files
+        run: |
+          set -euo pipefail
+
+          # Exclude documentation files that intentionally mention these terms.
+          mapfile -t files < <(find . -type f \
+            -not -path './.git/*' \
+            -not -path './README.md' \
+            -not -path './SECURITY.md' \
+            -not -path './.github/*')
+
+          pattern='token|secret|password|github|copilot|codex|openai|claude|ssh|vpn|auth|session|apikey|bearer|cookie|workspacestorage|globalstorage|storage\.json'
+
+          if rg -n -i "$pattern" "${files[@]}"; then
+            echo "Forbidden pattern found outside allowed docs."
+            exit 1
+          fi
+
+          echo "No forbidden patterns found in scanned files."
