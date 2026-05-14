@@ -1,0 +1,18 @@
+{
+  "Markdown checklist": {
+    "prefix": "mdcheck",
+    "body": [
+      "- [ ] ${1:Task 1}",
+      "- [ ] ${2:Task 2}",
+      "- [ ] ${0:Task 3}"
+    ],
+    "description": "Insert markdown checklist"
+  },
+  "Markdown note block": {
+    "prefix": "mdnote",
+    "body": [
+      "> **Note:** ${0}"
+    ],
+    "description": "Insert a note callout line"
+  }
+}

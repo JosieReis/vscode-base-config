@@ -1,0 +1,17 @@
+{
+  "React functional component": {
+    "prefix": "rfc",
+    "body": [
+      "type ${1:ComponentName}Props = {",
+      "  ${2}",
+      "};",
+      "",
+      "export function ${1:ComponentName}(${3:props}: ${1:ComponentName}Props) {",
+      "  return (",
+      "    <div>${1:ComponentName}</div>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a typed React function component"
+  }
+}
